@@ -54,14 +54,14 @@ defmodule Day2 do
       |> List.flatten()
       |> Enum.group_by(&(Map.keys(&1) |> List.first()), & &1)
       |> Enum.into(%{})
-      |> foo(id)
+      |> calculate_power(id)
     end)
     |> List.flatten()
     |> Enum.map(fn {_id, power} -> power end)
     |> Enum.sum()
   end
 
-  def foo(maps, id) do
+  def calculate_power(maps, id) do
     %{green: green_list} = maps
     %{red: red_list} = maps
     %{blue: blue_list} = maps
